@@ -1,0 +1,38 @@
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
+import java.awt.*;
+
+//A letter shape that can be position ANYWHERE on the screen
+public class SpellName {
+	/**
+		Constructs a letter with a given top-left corner
+		@param x the x-coordinate of the top-left corner
+		@param y the y-coordinate of the top-left corner
+	*/
+	public SpellName(int x, int y, int width, int height){
+		xLeft = x;
+		yTop = y;
+		objectWidth = width;
+		objectHeight = height;
+	}
+	/**
+		Draws the letter
+		@param g2 the graphics context
+	*/
+	public void draw(Graphics2D g2){
+		Rectangle spellsquare = new Rectangle(xLeft,yTop,objectWidth,objectHeight);
+		Rectangle outline = new Rectangle(xLeft-3,yTop-3,objectWidth+6,objectHeight+6);
+		
+		g2.setColor(Color.BLACK);
+		g2.fill(outline);
+		g2.setColor(Color.ORANGE);
+		g2.fill(spellsquare);
+
+		
+	}
+		
+	private int xLeft;
+	private int yTop;
+	private int objectWidth;
+	private int objectHeight;
+}
