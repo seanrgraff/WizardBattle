@@ -1,0 +1,39 @@
+import java.awt.*;
+
+//A letter shape that can be position ANYWHERE on the screen
+public class HealthBar {
+	/**
+		Constructs a letter with a given top-left corner
+		@param x the x-coordinate of the top-left corner
+		@param y the y-coordinate of the top-left corner
+	*/
+	public HealthBar(int x, int y, int width, int height){
+		xLeft = x;
+		yTop = y;
+		objectWidth = width;
+		objectHeight = height;
+	}
+	/**
+		Draws the letter
+		@param g2 the graphics context
+	*/
+	public void draw(Graphics2D g2){
+		int hits = objectWidth;
+		Rectangle health = new Rectangle(xLeft,yTop,hits,objectHeight);
+		Rectangle outline = new Rectangle(xLeft-3,yTop-3,objectWidth+6,objectHeight+6);
+		Rectangle missing = new Rectangle(xLeft+200,yTop,objectWidth-200,objectHeight);
+		
+		g2.setColor(Color.BLACK);
+		g2.fill(outline);
+		g2.setColor(Color.BLUE);	//this is where i can change the color of the health bar
+		g2.fill(health);			//based on whether they are burnt or poisoned
+		g2.setColor(Color.WHITE);
+		g2.fill(missing);
+		
+	}
+		
+	private int xLeft;
+	private int yTop;
+	private int objectWidth;
+	private int objectHeight;
+}
