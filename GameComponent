@@ -7,24 +7,34 @@ public class GameComponent extends JComponent {
 	public void paintComponent(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;		
 		
-		int xPosition = getWidth();
-		int yPosition = getHeight();
-		int objectWidth = getWidth();
-		int objectHeight = getHeight();
-		TimeRemaining timer = new TimeRemaining((xPosition/2)-100,yPosition/13, objectWidth/5 , objectHeight/50);
+		int xPosition = getWidth()/90;
+		int yPosition = getHeight()/13;
+		int objectWidth = getWidth()/5;
+		int objectHeight = getHeight()/50;
+		TimeRemaining timer = new TimeRemaining((getWidth()/2)-100,yPosition, objectWidth , objectHeight);
 		
 		
 		
-		HealthBar hits = new HealthBar(xPosition/100, yPosition/13, objectWidth/5, objectHeight/50);
-		CoolDown cooldown = new CoolDown(xPosition/100, yPosition/13 + objectHeight*2/50, objectWidth/5 - 100, objectHeight/50);
-		SpellName spellbox = new SpellName(xPosition/100, yPosition/13 + objectHeight*4/50, objectWidth/5, objectHeight/50);
-		Character character = new Character(xPosition/90, yPosition-300);
+		HealthBar hits = new HealthBar(xPosition, yPosition, objectWidth, objectHeight);
+		CoolDown cooldown = new CoolDown(xPosition, yPosition + objectHeight*2, objectWidth - 100, objectHeight);
+		SpellName spellbox = new SpellName(xPosition, yPosition + objectHeight*4, objectWidth, objectHeight);
+		Character character = new Character(xPosition, yPosition-300);
+		
+		HealthBar hits2 = new HealthBar(xPosition-objectWidth/4, yPosition, objectWidth, objectHeight);
+		CoolDown cooldown2 = new CoolDown(xPosition-objectWidth/4, yPosition + objectHeight*2, objectWidth - 100, objectHeight);
+		SpellName spellbox2 = new SpellName(xPosition-objectWidth/4, yPosition + objectHeight*4, objectWidth, objectHeight);
 
+		timer.draw(g2);
+		//character.draw(g2);
 		
 		hits.draw(g2);
-		cooldown.draw(g2);
-		timer.draw(g2);
+		cooldown.draw(g2);		
 		spellbox.draw(g2);
-		//character.draw(g2);
+		/*
+		hits2.draw(g2);
+		cooldown2.draw(g2);		
+		spellbox2.draw(g2);
+		*/
+		
 		} 
 	}
