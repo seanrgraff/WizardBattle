@@ -1,0 +1,30 @@
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import javax.swing.JComponent;
+
+//This is gonna draw letters
+public class GameComponent extends JComponent {
+	public void paintComponent(Graphics g) {
+		Graphics2D g2 = (Graphics2D) g;		
+		
+		int xPosition = getWidth();
+		int yPosition = getHeight();
+		int objectWidth = getWidth();
+		int objectHeight = getHeight();
+		TimeRemaining timer = new TimeRemaining((xPosition/2)-100,yPosition/13, objectWidth/5 , objectHeight/50);
+		
+		
+		
+		HealthBar hits = new HealthBar(xPosition/100, yPosition/13, objectWidth/5, objectHeight/50);
+		CoolDown cooldown = new CoolDown(xPosition/100, yPosition/13 + objectHeight*2/50, objectWidth/5 - 100, objectHeight/50);
+		SpellName spellbox = new SpellName(xPosition/100, yPosition/13 + objectHeight*4/50, objectWidth/5, objectHeight/50);
+		Character character = new Character(xPosition/90, yPosition-300);
+
+		
+		hits.draw(g2);
+		cooldown.draw(g2);
+		timer.draw(g2);
+		spellbox.draw(g2);
+		//character.draw(g2);
+		} 
+	}
