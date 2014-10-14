@@ -1,0 +1,16 @@
+import javax.swing.JFrame;
+
+public class Game_Viewer{
+	public static void main(String[] args){
+		JFrame frame = new JFrame();
+		
+		frame.setSize(900,900);
+		frame.setTitle("Battle Of Wizards");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		GameComponent component = new GameComponent();
+		frame.add(component);
+		
+		frame.setVisible(true);
+	}
+}
